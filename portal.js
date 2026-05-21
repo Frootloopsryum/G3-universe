@@ -40,6 +40,17 @@ async function ensureOperatorRow(userId, email) {
   if (insertError) throw insertError;
 }
 
+async function lookupOperatorByEmail(candidateEmail) {
+  const { data, error } = await supabase
+    .from('operators')
+    .select('id, onboarding_done')
+    .eq('email', candidateEmail)
+    .maybeSingle();
+
+  if (error) throw error;
+  return data;
+}
+
 function setPortalError(message) {
   const errorNode = document.getElementById('portalError');
   if (!errorNode) return;
@@ -187,6 +198,24 @@ function bootStudioPortal() {
       const originalText = forgotPasswordButton.textContent;
       forgotPasswordButton.textContent = 'Sending…';
 
+      let operator = null;
+
+      try {
+        operator = await lookupOperatorByEmail(email);
+      } catch (lookupError) {
+        forgotPasswordButton.disabled = false;
+        forgotPasswordButton.textContent = originalText;
+        setPortalError(lookupError?.message ?? 'Could not check that email right now. Please try again.');
+        return;
+      }
+
+      if (!operator) {
+        forgotPasswordButton.disabled = false;
+        forgotPasswordButton.textContent = originalText;
+        setPortalError('No operator account exists with that email yet. Create your account instead.');
+        return;
+      }
+
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
         redirectTo: STUDIO_APP_URL,
       });
@@ -196,6 +225,11 @@ function bootStudioPortal() {
 
       if (error) {
         setPortalError(error.message);
+        return;
+      }
+
+      if (operator.onboarding_done === false) {
+        setPortalInfo('Password reset link sent. This account still needs setup, so after you choose a new password you’ll continue onboarding in Studio.');
         return;
       }
 
