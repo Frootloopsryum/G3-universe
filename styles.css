@@ -726,6 +726,16 @@ button {
   color: var(--muted);
 }
 
+.product-price,
+.service-price {
+  margin: 8px 0 0;
+  color: var(--white) !important;
+  font-size: 0.98rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .universe-card a {
   display: inline-flex;
   width: fit-content;
@@ -751,6 +761,29 @@ button {
 .product-card .button {
   width: fit-content;
   margin-top: auto;
+}
+
+.service-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.service-meta-pill {
+  display: inline-flex;
+  width: fit-content;
+  padding: 8px 11px;
+  border-radius: 999px;
+  color: var(--black);
+  font-size: 0.76rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--acid);
+  box-shadow: var(--shadow-acid);
 }
 
 .theme-green .card-icon,
