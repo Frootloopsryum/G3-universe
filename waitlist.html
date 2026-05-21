@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Join the Chaos | G3 Universe</title>
+  <meta
+    name="description"
+    content="Join the G3 Universe waitlist for launch updates, digital product drops and early access."
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="cosmic-bg" aria-hidden="true">
+    <span class="orb orb-one"></span>
+    <span class="orb orb-two"></span>
+    <span class="orb orb-three"></span>
+    <div class="star-layer star-layer-one"></div>
+    <div class="star-layer star-layer-two"></div>
+    <div class="star-layer star-layer-three"></div>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="G3 Universe homepage">
+      <span class="brand-mark">G3.</span>
+      <span class="brand-line"></span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html#drop">The Drop</a>
+      <a href="products.html">Digital Products</a>
+      <a href="services.html">Services</a>
+      <a href="hub.html">Members Hub</a>
+      <a href="studio.html">Studio Portal</a>
+      <a href="index.html#artists">For Artists</a>
+      <a class="nav-cta" href="waitlist.html">Join the Chaos</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="waitlist-page">
+      <div class="container waitlist-grid">
+        <div class="waitlist-copy reveal">
+          <p class="eyebrow"><span></span> Access pending</p>
+          <h1>Join the Chaos.</h1>
+          <p>
+            Get launch updates, early access signals, digital product drops and the occasional
+            transmission from whatever the hell is being built in the dark.
+          </p>
+
+          <div class="waitlist-points">
+            <div>
+              <strong>01</strong>
+              <span>No spam. We are busy causing problems.</span>
+            </div>
+            <div>
+              <strong>02</strong>
+              <span>Built for beauty operators, artists and service providers.</span>
+            </div>
+            <div>
+              <strong>03</strong>
+              <span>You will know more when you are meant to know more.</span>
+            </div>
+          </div>
+        </div>
+
+        <form
+          class="waitlist-form reveal delay-1"
+          name="g3-waitlist"
+          method="POST"
+          action="/success.html"
+          data-netlify="true"
+          netlify-honeypot="extra-details"
+        >
+          <input type="hidden" name="form-name" value="g3-waitlist" />
+
+          <p class="hidden-field">
+            <label>
+              Do not fill this out:
+              <input name="extra-details" />
+            </label>
+          </p>
+
+          <div class="form-header">
+            <p>Enter the Universe</p>
+            <span>Netlify-ready form</span>
+          </div>
+
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+          <label for="industry">What kind of operator are you?</label>
+          <select id="industry" name="industry" required>
+            <option value="">Choose one</option>
+            <option value="lash-artist">Lash artist</option>
+            <option value="brow-artist">Brow artist</option>
+            <option value="tattoo-artist">Tattoo artist</option>
+            <option value="piercer">Piercer</option>
+            <option value="hairdresser">Hairdresser</option>
+            <option value="nail-tech">Nail tech</option>
+            <option value="makeup-artist">Makeup artist</option>
+            <option value="studio-owner">Studio owner</option>
+            <option value="mobile-provider">Mobile provider</option>
+            <option value="other">Other service provider</option>
+          </select>
+
+          <label for="interest">What are you most interested in?</label>
+          <select id="interest" name="interest" required>
+            <option value="">Choose one</option>
+            <option value="the-drop">The mysterious drop</option>
+            <option value="digital-products">Digital products</option>
+            <option value="services">Services / working together</option>
+            <option value="members-hub">Members Hub</option>
+            <option value="all-of-it">All of it. Obviously.</option>
+          </select>
+
+          <label for="message">Optional chaos note</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Tell me what part of your business currently needs an exorcism."
+          ></textarea>
+
+          <button class="button button-primary magnetic" type="submit">Submit to the Void</button>
+
+          <p class="form-note">
+            By submitting, you are joining the G3 Universe waitlist. No glittery nonsense.
+            Just updates when there is something worth saying.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <a class="footer-brand" href="index.html">G3.</a>
+      <p>Digital systems, products and strategy for operators with standards.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="products.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="hub.html">Hub</a>
+      <a href="studio.html">Studio</a>
+      <a href="waitlist.html">Waitlist</a>
+    </div>
+
+    <p class="footer-small">© 2026 G3 Universe. Built in the dark.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

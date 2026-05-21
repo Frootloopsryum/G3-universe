@@ -1,0 +1,44 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/products"
+  to = "/products.html"
+  status = 200
+
+[[redirects]]
+  from = "/services"
+  to = "/services.html"
+  status = 200
+
+[[redirects]]
+  from = "/hub"
+  to = "/hub.html"
+  status = 200
+
+[[redirects]]
+  from = "/studio"
+  to = "/studio.html"
+  status = 200
+
+[[redirects]]
+  from = "/workspace"
+  to = "/workspace.html"
+  status = 200
+
+[[redirects]]
+  from = "/waitlist"
+  to = "/waitlist.html"
+  status = 200
+
+[[redirects]]
+  from = "/success"
+  to = "/success.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"

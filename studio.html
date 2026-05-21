@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Studio Portal | G3 Universe</title>
+  <meta
+    name="description"
+    content="Sign in to G3 Studio Management through the G3 Universe portal, then launch the same operator workspace in-app or inside the portal."
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body data-page="studio-portal">
+  <div class="cosmic-bg" aria-hidden="true">
+    <span class="orb orb-one"></span>
+    <span class="orb orb-two"></span>
+    <span class="orb orb-three"></span>
+    <div class="star-layer star-layer-one"></div>
+    <div class="star-layer star-layer-two"></div>
+    <div class="star-layer star-layer-three"></div>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="G3 Universe homepage">
+      <span class="brand-mark">G3.</span>
+      <span class="brand-line"></span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html#drop">The Drop</a>
+      <a href="products.html">Digital Products</a>
+      <a href="services.html">Services</a>
+      <a href="hub.html">Members Hub</a>
+      <a href="studio.html">Studio Portal</a>
+      <a class="nav-cta" href="https://studio.g3universe.com">Open App</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container narrow reveal">
+        <p class="eyebrow"><span></span> Operator portal</p>
+        <h1>Same studio. Two ways in.</h1>
+        <p>
+          Log into G3 Studio Management here inside G3 Universe, then choose whether you want to
+          keep working in the portal workspace or jump straight into the full-screen studio app.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container portal-grid">
+        <article class="portal-shell reveal">
+          <p class="kicker">How this works</p>
+          <h2>One account. One studio system. Your choice of shell.</h2>
+          <p>
+            The same G3 booking engine, clients, services, stock, policies and setup live behind
+            both entry paths. Use the app when you want speed, or stay in the portal when you want
+            the broader G3 Universe around you.
+          </p>
+
+          <div class="portal-bullet-list">
+            <div class="portal-bullet">
+              <strong>Direct Studio</strong>
+              <span>Best for daily work, phone installs, and clean operator flow.</span>
+            </div>
+            <div class="portal-bullet">
+              <strong>Portal Workspace</strong>
+              <span>Best when you want studio access alongside products, resources, and member content.</span>
+            </div>
+            <div class="portal-bullet">
+              <strong>Same credentials</strong>
+              <span>Use the same sign-in either way. No second operator login and no duplicate business setup.</span>
+            </div>
+          </div>
+
+          <div class="portal-tip-card">
+            <p class="kicker">Install tip</p>
+            <p>
+              Operators who want the most app-like experience should install the studio app from
+              <strong> studio.g3universe.com</strong> after logging in.
+            </p>
+          </div>
+        </article>
+
+        <article id="portal-signin" class="portal-shell portal-auth-shell reveal delay-1">
+          <div id="portalSignedOut">
+            <p class="kicker">Sign in</p>
+            <h2>Launch your studio</h2>
+            <p class="portal-copy">
+              Sign in with the same operator account you already use in G3 Studio Management.
+            </p>
+
+            <form id="portalAuthForm" class="portal-form">
+              <label for="portalEmail">Email</label>
+              <input id="portalEmail" name="email" type="email" autocomplete="email" required />
+
+              <label for="portalPassword">Password</label>
+              <input id="portalPassword" name="password" type="password" autocomplete="current-password" required />
+
+              <button id="portalSubmit" class="button button-primary magnetic" type="submit">Sign in</button>
+              <button id="portalModeToggle" class="button button-ghost" type="button">Need an account? Create one</button>
+
+              <p id="portalError" class="portal-error" hidden></p>
+            </form>
+          </div>
+
+          <div id="portalSignedIn" hidden>
+            <p class="kicker">Signed in</p>
+            <h2>Your studio is ready</h2>
+            <p id="portalSessionCopy" class="portal-copy"></p>
+
+            <div class="portal-launch-list">
+              <a id="portalWorkspaceLink" class="button button-primary magnetic" href="workspace.html">Open inside portal</a>
+              <a id="portalAppLink" class="button button-ghost" href="https://studio.g3universe.com">Open full-screen app</a>
+            </div>
+
+            <button id="portalSignOut" class="portal-text-button" type="button">Sign out</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <a class="footer-brand" href="index.html">G3.</a>
+      <p>Digital systems, products and strategy for operators with standards.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="products.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="hub.html">Hub</a>
+      <a href="studio.html">Studio Portal</a>
+    </div>
+
+    <p class="footer-small">© 2026 G3 Universe. Built in the dark.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script type="module" src="portal.js"></script>
+</body>
+</html>
