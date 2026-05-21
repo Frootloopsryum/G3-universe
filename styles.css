@@ -352,9 +352,10 @@ button {
 .success-page h1 {
   max-width: 980px;
   font-size: clamp(3.1rem, 8vw, 7.2rem);
-  line-height: 0.9;
-  letter-spacing: -0.09em;
+  line-height: 0.95;
+  letter-spacing: -0.055em;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .hero h1 span,
@@ -589,8 +590,8 @@ button {
   display: block;
   margin: 10px 0;
   font-size: 1.55rem;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
 }
 
 .classified-card small {
@@ -610,9 +611,10 @@ button {
 .cta-box h2,
 .waitlist-copy h1 {
   font-size: clamp(2.3rem, 5vw, 5rem);
-  line-height: 0.94;
-  letter-spacing: -0.075em;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .section-heading p {
@@ -712,8 +714,8 @@ button {
 .hub-card h2 {
   margin-bottom: 13px;
   font-size: 1.5rem;
-  line-height: 1.08;
-  letter-spacing: -0.04em;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
 }
 
 .universe-card p,
@@ -1235,9 +1237,10 @@ button {
 .portal-shell h2,
 .workspace-shell h1 {
   font-size: clamp(2rem, 4vw, 3.3rem);
-  line-height: 0.95;
-  letter-spacing: -0.07em;
+  line-height: 0.99;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .portal-shell > p,

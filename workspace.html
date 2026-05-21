@@ -4,16 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Studio Workspace | G3 Universe</title>
+  <title>Access Pending | G3 Universe</title>
   <meta
     name="description"
-    content="Use the G3 Studio Management workspace inside the G3 Universe member portal."
+    content="This part of G3 Universe is not public yet. Join the waitlist for updates."
   />
+  <meta name="robots" content="noindex, nofollow" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body data-page="studio-workspace">
+<body>
   <div class="cosmic-bg" aria-hidden="true">
     <span class="orb orb-one"></span>
     <span class="orb orb-two"></span>
@@ -23,58 +24,25 @@
     <div class="star-layer star-layer-three"></div>
   </div>
 
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="G3 Universe homepage">
-      <span class="brand-mark">G3.</span>
-      <span class="brand-line"></span>
-    </a>
+  <main class="success-page">
+    <section class="container narrow reveal">
+      <a class="brand success-brand" href="index.html" aria-label="G3 Universe homepage">
+        <span class="brand-mark">G3.</span>
+        <span class="brand-line"></span>
+      </a>
 
-    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
-      <span></span>
-      <span></span>
-    </button>
-
-    <nav class="site-nav" aria-label="Main navigation">
-      <a href="index.html#drop">The Drop</a>
-      <a href="products.html">Digital Products</a>
-      <a href="services.html">Services</a>
-      <a href="hub.html">Members Hub</a>
-      <a href="studio.html">Studio Portal</a>
-      <a id="workspaceAppLink" class="nav-cta" href="https://studio.g3universe.com">Open App</a>
-    </nav>
-  </header>
-
-  <main class="workspace-page">
-    <section class="workspace-shell reveal visible">
-      <div class="workspace-toolbar">
-        <div>
-          <p class="kicker">Studio workspace</p>
-          <h1>Your operator system, inside G3 Universe.</h1>
-        </div>
-
-        <div class="workspace-toolbar-actions">
-          <a class="button button-ghost" href="studio.html">Back to portal</a>
-          <a id="workspaceToolbarLink" class="button button-primary magnetic" href="https://studio.g3universe.com">Open full screen</a>
-        </div>
-      </div>
-
-      <p id="workspaceStatus" class="workspace-status">
-        Loading your studio session…
+      <p class="eyebrow"><span></span> Access pending</p>
+      <h1>Not public. Not today.</h1>
+      <p>
+        This corner is still private beta territory. If I wanted it open, it would be open.
+        Join the waitlist and I will make noise when it is time.
       </p>
 
-      <div class="workspace-frame-wrap">
-        <iframe
-          id="workspaceFrame"
-          title="G3 Studio Management"
-          class="workspace-frame"
-          loading="eager"
-          referrerpolicy="origin"
-        ></iframe>
-      </div>
+      <a class="button button-primary magnetic" href="waitlist.html">Join the Waitlist</a>
+      <a class="button button-ghost" href="index.html#drop">Back to The Drop</a>
     </section>
   </main>
 
   <script src="script.js"></script>
-  <script type="module" src="portal.js"></script>
 </body>
 </html>
