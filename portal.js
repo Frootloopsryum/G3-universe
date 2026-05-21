@@ -47,6 +47,13 @@ function setPortalError(message) {
   errorNode.hidden = !message;
 }
 
+function setPortalInfo(message) {
+  const infoNode = document.getElementById('portalInfo');
+  if (!infoNode) return;
+  infoNode.textContent = message || '';
+  infoNode.hidden = !message;
+}
+
 async function handleAuthSubmit(event, mode) {
   event.preventDefault();
 
@@ -65,6 +72,7 @@ async function handleAuthSubmit(event, mode) {
   }
 
   setPortalError('');
+  setPortalInfo('');
   submitButton.disabled = true;
   submitButton.textContent = mode === 'login' ? 'Signing in…' : 'Creating account…';
 
@@ -135,12 +143,14 @@ function bootStudioPortal() {
   const form = document.getElementById('portalAuthForm');
   const toggleButton = document.getElementById('portalModeToggle');
   const signOutButton = document.getElementById('portalSignOut');
+  const forgotPasswordButton = document.getElementById('portalForgotPassword');
   let mode = 'login';
 
   if (toggleButton) {
     toggleButton.addEventListener('click', () => {
       mode = mode === 'login' ? 'signup' : 'login';
       setPortalError('');
+      setPortalInfo('');
       renderPortalState(null, mode);
     });
   }
@@ -155,6 +165,41 @@ function bootStudioPortal() {
     signOutButton.addEventListener('click', async () => {
       await supabase.auth.signOut();
       renderPortalState(null, mode);
+    });
+  }
+
+  if (forgotPasswordButton) {
+    forgotPasswordButton.addEventListener('click', async () => {
+      const emailInput = document.getElementById('portalEmail');
+      const submitButton = document.getElementById('portalSubmit');
+      if (!emailInput || !submitButton) return;
+
+      const email = emailInput.value.trim();
+      setPortalError('');
+      setPortalInfo('');
+
+      if (!email) {
+        setPortalError('Enter your email first, then tap forgot password.');
+        return;
+      }
+
+      forgotPasswordButton.disabled = true;
+      const originalText = forgotPasswordButton.textContent;
+      forgotPasswordButton.textContent = 'Sending…';
+
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: STUDIO_APP_URL,
+      });
+
+      forgotPasswordButton.disabled = false;
+      forgotPasswordButton.textContent = originalText;
+
+      if (error) {
+        setPortalError(error.message);
+        return;
+      }
+
+      setPortalInfo('Password reset link sent. Open it in Studio and choose a new password there.');
     });
   }
 

@@ -1324,6 +1324,13 @@ button {
   font-weight: 700;
 }
 
+.portal-info {
+  margin-top: 10px;
+  color: var(--acid);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
 .portal-launch-list {
   display: grid;
   gap: 12px;
