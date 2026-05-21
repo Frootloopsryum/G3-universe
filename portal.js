@@ -229,11 +229,11 @@ function bootStudioPortal() {
       }
 
       if (operator.onboarding_done === false) {
-        setPortalInfo('Password reset link sent. This account still needs setup, so after you choose a new password you’ll continue onboarding in Studio.');
+        setPortalInfo('Password reset link sent. Check your email and follow the reset link. After you choose a new password, you’ll continue setup in Studio.');
         return;
       }
 
-      setPortalInfo('Password reset link sent. Open it in Studio and choose a new password there.');
+      setPortalInfo('Password reset link sent. Check your email and follow the reset link to choose a new password.');
     });
   }
 
