@@ -2,7 +2,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2?bundle';
 
 const SUPABASE_URL = 'https://foarlngpaotkbsvtqqwm.supabase.co';
 const SUPABASE_ANON_KEY =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZvYXJsbmdwYW90a2JzdnRxcXdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3MDY1NjgsImV4cCI6MjA5MTI4MjU2OH0.6BJM1jOw1nL9Tm7bkg7JwcYuE_voBG5bga2fsv9iYIU';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXAiOiJmb2FybG5ncGFvdGtic3Z0cXF3bSIsInJvbGUiOiJhbm9uIiwiaWF0IjoxNzc1NzA2NTY4LCJleHAiOjIwOTEyODI1Njh9.6BJM1jOw1nL9Tm7bkg7JwcYuE_voBG5bga2fsv9iYIU';
 const STUDIO_APP_URL = 'https://studio.g3universe.com/';
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
@@ -85,7 +85,7 @@ async function handleAuthSubmit(event, mode) {
   setPortalError('');
   setPortalInfo('');
   submitButton.disabled = true;
-  submitButton.textContent = mode === 'login' ? 'Signing in…' : 'Creating account…';
+  submitButton.textContent = mode === 'login' ? 'Signing in...' : 'Creating account...';
 
   try {
     let authResult;
@@ -196,7 +196,7 @@ function bootStudioPortal() {
 
       forgotPasswordButton.disabled = true;
       const originalText = forgotPasswordButton.textContent;
-      forgotPasswordButton.textContent = 'Sending…';
+      forgotPasswordButton.textContent = 'Sending...';
 
       let operator = null;
 
@@ -229,7 +229,7 @@ function bootStudioPortal() {
       }
 
       if (operator.onboarding_done === false) {
-        setPortalInfo('Password reset link sent. Check your email and follow the reset link. After you choose a new password, you’ll continue setup in Studio.');
+        setPortalInfo('There is an incomplete profile for this account. Reset your password, then continue setup in Studio.');
         return;
       }
 
