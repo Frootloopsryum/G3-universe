@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Members Hub | G3 Universe</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta
+    name="description"
+    content="Private Members Hub for active Studio subscribers."
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="members-app-page">
+  <div class="cosmic-bg" aria-hidden="true">
+    <span class="orb orb-one"></span>
+    <span class="orb orb-two"></span>
+    <span class="orb orb-three"></span>
+    <div class="star-layer star-layer-one"></div>
+    <div class="star-layer star-layer-two"></div>
+    <div class="star-layer star-layer-three"></div>
+  </div>
+
+  <main class="members-shell" id="membersShell">
+    <section class="members-auth-card reveal visible" id="membersGate">
+      <p class="eyebrow"><span></span> Members Hub</p>
+      <h1>Subscriber access only</h1>
+      <p id="membersGateCopy">
+        Sign in with the same email you use for Studio. If your Studio subscription is active, the Hub will let you straight in.
+      </p>
+      <form id="membersLoginForm" class="portal-form members-auth-form">
+        <label for="hubEmail">Email</label>
+        <input id="hubEmail" type="email" autocomplete="email" required />
+        <label for="hubPassword">Password</label>
+        <input id="hubPassword" type="password" autocomplete="current-password" required />
+        <button class="button button-primary magnetic" id="membersLoginButton" type="submit">Open the Hub</button>
+      </form>
+      <div class="portal-error" id="membersError" hidden></div>
+      <div class="portal-info" id="membersInfo" hidden></div>
+    </section>
+
+    <section class="members-app" id="membersApp" hidden>
+      <aside class="members-sidebar">
+        <div class="members-brand">
+          <p class="eyebrow"><span></span> Members Hub</p>
+          <h2 id="membersWelcomeTitle">Coworker energy unlocked</h2>
+          <p id="membersWelcomeSub">Main, Advice, Promo Support, and a resource shelf that does not require a scavenger hunt.</p>
+        </div>
+        <div class="members-segmented">
+          <button class="members-segment active" data-section="chat" type="button">Chat</button>
+          <button class="members-segment" data-section="resources" type="button">Resources</button>
+        </div>
+        <div class="members-room-list" id="membersRoomList"></div>
+        <div class="members-sidebar-footer">
+          <div class="members-pill" id="membersNicknamePill"></div>
+          <button class="button button-ghost" id="membersSignOut" type="button">Sign out</button>
+        </div>
+      </aside>
+
+      <section class="members-panel">
+        <div id="chatSection">
+          <div class="members-panel-header">
+            <div>
+              <p class="kicker" id="membersRoomKicker">Main room</p>
+              <h1 id="membersRoomTitle">Main</h1>
+            </div>
+            <button class="button button-ghost" id="changeNicknameButton" type="button">Change nickname</button>
+          </div>
+          <div class="members-feed" id="membersMessageFeed"></div>
+          <form class="members-compose" id="membersMessageForm">
+            <textarea id="membersMessageInput" rows="3" placeholder="Say the thing. Vent, ask, drop context, whatever." required></textarea>
+            <div class="members-compose-actions">
+              <p id="membersComposeHint">Promo Support is limited to one promo post per day.</p>
+              <button class="button button-primary magnetic" id="membersMessageSubmit" type="submit">Send</button>
+            </div>
+          </form>
+        </div>
+
+        <div id="resourcesSection" hidden>
+          <div class="members-panel-header">
+            <div>
+              <p class="kicker">Resources</p>
+              <h1>Shared files and useful links</h1>
+            </div>
+          </div>
+
+          <form class="members-resource-form" id="membersResourceForm">
+            <div class="detail-form-grid">
+              <div>
+                <label for="resourceTitle">Title</label>
+                <input id="resourceTitle" required />
+              </div>
+              <div>
+                <label for="resourceCategory">Category</label>
+                <select id="resourceCategory" required>
+                  <option value="Lash Maps">Lash Maps</option>
+                  <option value="Brow Tips">Brow Tips</option>
+                  <option value="Links">Links</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="detail-form-grid">
+              <div>
+                <label for="resourceType">Resource type</label>
+                <select id="resourceType" required>
+                  <option value="link">Link</option>
+                  <option value="file">File upload</option>
+                </select>
+              </div>
+              <div id="resourceLinkWrap">
+                <label for="resourceUrl">Link URL</label>
+                <input id="resourceUrl" type="url" placeholder="https://..." />
+              </div>
+              <div id="resourceFileWrap" hidden>
+                <label for="resourceFile">Upload file</label>
+                <input id="resourceFile" type="file" />
+              </div>
+            </div>
+            <div>
+              <label for="resourceDescription">Description</label>
+              <textarea id="resourceDescription" rows="4" placeholder="What is it, why is it useful, what are people clicking into?"></textarea>
+            </div>
+            <div class="members-compose-actions">
+              <p id="resourcePreviewHint">Links need a clear title. We will pull a preview card when the destination lets us.</p>
+              <button class="button button-primary magnetic" id="membersResourceSubmit" type="submit">Share resource</button>
+            </div>
+          </form>
+
+          <div class="members-resource-groups" id="membersResourceGroups"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div class="members-modal-backdrop" id="nicknameModal" hidden>
+    <div class="members-modal">
+      <p class="eyebrow"><span></span> Hub nickname</p>
+      <h2>Pick the name people will see</h2>
+      <p>Nicknames must be unique. You can change yours once every 30 days, so maybe don't choose chaos for the bit.</p>
+      <form id="nicknameForm" class="portal-form">
+        <label for="nicknameInput">Nickname</label>
+        <input id="nicknameInput" maxlength="30" required />
+        <button class="button button-primary magnetic" id="nicknameSubmit" type="submit">Save nickname</button>
+      </form>
+      <div class="portal-error" id="nicknameError" hidden></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script type="module" src="members.js"></script>
+</body>
+</html>

@@ -7,13 +7,28 @@
   status = 200
 
 [[redirects]]
+  from = "/products/:slug"
+  to = "/product.html?slug=:slug"
+  status = 200
+
+[[redirects]]
   from = "/services"
   to = "/services.html"
   status = 200
 
 [[redirects]]
+  from = "/services/:slug"
+  to = "/service.html?slug=:slug"
+  status = 200
+
+[[redirects]]
   from = "/hub"
   to = "/hub.html"
+  status = 200
+
+[[redirects]]
+  from = "/members"
+  to = "/members.html"
   status = 200
 
 [[redirects]]
@@ -34,6 +49,16 @@
 [[redirects]]
   from = "/success"
   to = "/success.html"
+  status = 200
+
+[[redirects]]
+  from = "/product-success"
+  to = "/product-success.html"
+  status = 200
+
+[[redirects]]
+  from = "/service-success"
+  to = "/service-success.html"
   status = 200
 
 [[headers]]

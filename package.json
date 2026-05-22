@@ -1,0 +1,10 @@
+{
+  "name": "g3-universe",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.6",
+    "@supabase/supabase-js": "^2.103.0",
+    "stripe": "^22.0.2"
+  }
+}

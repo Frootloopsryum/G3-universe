@@ -1,32 +1,11 @@
 import { supabasePublic } from './supabase-public.js';
-
-function escapeHtml(value = '') {
-  return String(value)
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#39;');
-}
-
-function normalizeBullets(value) {
-  if (Array.isArray(value)) return value.filter(Boolean).map(String);
-  return [];
-}
-
-function priceLabel(amount) {
-  if (amount === null || amount === undefined || amount === '') return '';
-
-  const numeric = Number(amount);
-  if (Number.isNaN(numeric) || numeric <= 0) return '';
-  return `$${numeric.toFixed(2)} AUD`;
-}
+import { escapeHtml, normalizeBullets, priceLabel } from './catalog-common.js';
 
 function productCardMarkup(item, index) {
   const theme = item.theme === 'pink' ? 'theme-pink' : index % 2 === 0 ? 'theme-green' : 'theme-pink';
   const bullets = normalizeBullets(item.bullet_points);
-  const ctaHref = item.cta_url || 'waitlist.html';
-  const ctaLabel = item.cta_label || (item.stripe_price_id ? 'Buy now' : 'Notify me');
+  const ctaHref = item.cta_url || `/products/${encodeURIComponent(item.slug)}`;
+  const ctaLabel = item.cta_label || (item.price_aud ? 'Open product' : 'Notify me');
   const status = item.status_label || (item.stripe_price_id ? 'Available now' : 'Coming soon');
   const price = priceLabel(item.price_aud);
 
@@ -51,8 +30,8 @@ function productCardMarkup(item, index) {
 function serviceCardMarkup(item, index) {
   const theme = item.theme === 'pink' ? 'theme-pink' : index % 2 === 0 ? 'theme-green' : 'theme-pink';
   const bullets = normalizeBullets(item.bullet_points);
-  const ctaHref = item.cta_url || 'waitlist.html';
-  const ctaLabel = item.cta_label || (item.requires_intake ? 'Apply now' : 'Enquire');
+  const ctaHref = item.cta_url || `/services/${encodeURIComponent(item.slug)}`;
+  const ctaLabel = item.cta_label || 'View service';
   const status = item.status_label || 'Waitlist';
   const price = priceLabel(item.price_aud);
 
