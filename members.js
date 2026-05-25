@@ -501,35 +501,31 @@ async function saveNickname(event) {
     }
   }
 
-  const payload = {
-    operator_id: currentOperator.id,
-    nickname,
-    last_nickname_change_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
-  };
+  const {
+    data: { session },
+  } = await supabaseAuth.auth.getSession();
 
-  const { error } = currentProfile
-    ? await supabaseAuth
-        .from('hub_member_profiles')
-        .update(payload)
-        .eq('operator_id', currentOperator.id)
-    : await supabaseAuth.from('hub_member_profiles').insert({
-        ...payload,
-        created_at: new Date().toISOString(),
-      });
+  const response = await fetch('/.netlify/functions/save-hub-profile', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: session?.access_token ? `Bearer ${session.access_token}` : '',
+    },
+    body: JSON.stringify({ nickname }),
+  });
 
-  if (error) {
+  const payload = await response.json().catch(() => ({}));
+
+  if (!response.ok) {
     nicknameError.hidden = false;
-    nicknameError.textContent = error.message.includes('duplicate')
-      ? 'That nickname is taken already.'
-      : error.message;
+    nicknameError.textContent = payload?.error || 'Nickname could not be saved right now.';
     return;
   }
 
-  const isFirstTime = !currentProfile;
-  currentProfile = {
+  const isFirstTime = Boolean(payload?.isFirstTime);
+  currentProfile = payload?.profile || {
     nickname,
-    last_nickname_change_at: payload.last_nickname_change_at,
+    last_nickname_change_at: new Date().toISOString(),
   };
   nicknamePill.textContent = nickname;
   nicknameModal.hidden = true;
