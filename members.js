@@ -1,4 +1,4 @@
-import { supabaseAuth } from './supabase-auth.js';
+import { getSupabaseAuth } from './supabase-auth.js';
 import { escapeHtml, setBusy, resetBusy } from './catalog-common.js';
 
 const gate = document.getElementById('membersGate');
@@ -42,6 +42,7 @@ let roomCache = [];
 let messageSubscription = null;
 let resourceSubscription = null;
 let activeSection = 'chat';
+const supabaseAuth = await getSupabaseAuth();
 
 function showError(message) {
   errorBox.hidden = false;

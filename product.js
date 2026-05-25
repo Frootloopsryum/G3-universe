@@ -1,4 +1,4 @@
-import { supabasePublic } from './supabase-public.js';
+import { getSupabasePublic } from './supabase-public.js';
 import { escapeHtml, normalizeBullets, priceLabel, queryParam, setBusy, resetBusy } from './catalog-common.js';
 
 const shell = document.getElementById('productDetailShell');
@@ -84,6 +84,7 @@ async function init() {
     return;
   }
 
+  const supabasePublic = await getSupabasePublic();
   const { data, error } = await supabasePublic
     .from('public_store_products')
     .select('*')

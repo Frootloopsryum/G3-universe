@@ -1,4 +1,4 @@
-import { supabasePublic } from './supabase-public.js';
+import { getSupabasePublic } from './supabase-public.js';
 import {
   escapeHtml,
   normalizeBullets,
@@ -180,6 +180,7 @@ async function init() {
     return;
   }
 
+  const supabasePublic = await getSupabasePublic();
   const { data, error } = await supabasePublic
     .from('public_service_offers')
     .select('*')

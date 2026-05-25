@@ -6,6 +6,6 @@ if (!stripeSecretKey) {
   console.warn('[functions] STRIPE_SECRET_KEY is missing.');
 }
 
-const stripe = new Stripe(stripeSecretKey || 'sk_test_missing');
+const stripe = stripeSecretKey ? new Stripe(stripeSecretKey) : null;
 
 module.exports = { stripe };

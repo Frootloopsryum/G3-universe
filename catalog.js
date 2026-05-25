@@ -1,4 +1,4 @@
-import { supabasePublic } from './supabase-public.js';
+import { getSupabasePublic } from './supabase-public.js';
 import { escapeHtml, normalizeBullets, priceLabel } from './catalog-common.js';
 
 function productCardMarkup(item, index) {
@@ -59,6 +59,7 @@ async function renderProductCatalog() {
   if (!container) return;
 
   try {
+    const supabasePublic = await getSupabasePublic();
     const { data, error } = await supabasePublic
       .from('public_store_products')
       .select('*')
@@ -76,6 +77,7 @@ async function renderServiceCatalog() {
   if (!container) return;
 
   try {
+    const supabasePublic = await getSupabasePublic();
     const { data, error } = await supabasePublic
       .from('public_service_offers')
       .select('*')
